@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .news .row{
+        
+        padding-bottom: 3rem;
+    }
+    .news .col-lg-6{  
+              
+        padding-left: 3rem;
+    }
+    .news .card{
+        transition: all ease-in-out 0.3s;
+    }
+    .news .card:hover{
+        transform: translateY(-20px);
+        border-color: rgb(153, 150, 150);
+        box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+
+    }
+    .news .card-img-top{
+        padding-left: 0.7rem;
+        text-align: center;
+        width: 30rem;
+        height: 20rem;
+    }
+
+</style>
+<div class="masthead" style='background-image: url("{{ url_for("static",filename="image/background.jpg") }}");'>
+    <div class="container">
+        <div class="masthead-subheading"><span style="border-radius: 1rem; background: rgba(7, 7, 7, 0.7);"> &nbsp&nbsp Agri News &nbsp&nbsp</span></div>
+        <div class="masthead-heading text-uppercase">Get Latest News</div>
+        <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
+    </div>
+</div>
+<div class="container-fluid news" style='background-color: rgb(235, 232, 232);'>
+    <br><br>   
+    
+    <div class="container">
+        {% for row in context|batch(2) %}
+
+        <div class="row" >
+            <div class="col-lg-6 text-center" >
+                <div class="card" style="width: 31rem; height:35rem;" >
+                    <p></p>
+                    <img src="{{context[row[0]]['urlToImage']}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{context[row[0]]['title']}}</h5>
+                      <p class="card-text">{{context[row[0]]['description']}}</p>
+                    </div>
+                    
+                    <div class="card-body">
+                    <a href="{{context[row[0]]['url']}}" class="card-link">Know More</a>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-lg-6 text-center" >
+                <div class="card" style="width: 31rem; height:35rem;" >
+                    <h6> </h6>
+                    <img src="{{context[row[1]]['urlToImage']}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{context[row[1]]['title']}}</h5>
+                      <p class="card-text">{{context[row[1]]['description']}}</p>
+                    </div>
+                    
+                    <div class="card-body">
+                      <a href="{{context[row[1]]['url']}}" class="card-link">Know More</a>
+                    </div>
+                  </div>
+            </div>
+           
+        </div>     
+          
+          
+        {% endfor %}    
+    
+    </div>
+
+
+</div>
+
+
+{% endblock %}

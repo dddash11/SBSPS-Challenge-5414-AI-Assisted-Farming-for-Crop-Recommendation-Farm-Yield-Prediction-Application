@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="masthead" style='background-image: url("{{ url_for("static",filename="image/recommend.jpg") }}");'>
+    <div class="container">
+        <div class="masthead-subheading"><span style="border-radius: 1rem; background: rgba(7, 7, 7, 0.7);"> &nbsp&nbspCrop Recommender&nbsp&nbsp</span></div>
+        <div class="masthead-heading text-uppercase">RECOMMENDS THE BEST CROP</div>
+        <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> -->
+    </div>
+</div>
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row">
+        <div style="padding-top: 2rem;" class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+          <img src="{{ url_for('static',filename='image/graphic.jpg') }}" class="img-fluid" alt="">
+        </div>
+        <div class="text-center col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content"   data-aos="fade-right"  data-aos-delay="100">
+            
+            <i class="bi bi-link fa-5x"></i>
+            <p style="padding-left:7rem; padding-right:7rem;" >We will help you find the best suited crop according
+            to your region's climatic and soil conditions
+           Your profits are our responsibility. just enter 
+           few details and we will take care of the rest.</p>
+        </div>
+      </div>
+
+    </div>
+    
+  </section><!-- End About Section -->
+<div class="container-fluid" style='background-color: rgb(235, 232, 232);' > 
+    <br><br>  
+    <div class="container" style='padding: 25px;   opacity:1;'>  
+        <div class="row"> 
+            <br><br>
+            <h1 class="text-center"> </h1>
+            <br><br><br>
+            <div style="padding-left: 23rem; font-family: sans-serif;">
+                <h5>Start Entering Details to predict</h5>
+                <p>Just choose your state and district and rest of the things will be taken care of... </p>
+
+            </div>
+            
+            <div class="col-lg-3"></div>
+
+            <div class="col-lg-6">
+                <br>                
+                <form class="form" action="/prediction"  id="croprecommendation" style="padding: 35px; " >
+                    <div class="mb-3">
+                        <label for="inputState" class="form-label">State</label>
+                        <select name="state" id="inputState" class="form-control">
+                            <option selected disabled>Select State</option>
+                            <option value="AndamanandNicobarIslands">Andaman and Nicobar Islands</option>
+                            <option value="AndhraPradesh">Andhra Pradesh</option>
+                            <option value="ArunachalPradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="DadarandNagarHaveli">Dadar and Nagar Haveli</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="HimachalPradesh">Himachal Pradesh</option>
+                            <option value="JammuandKashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="MadhyaPradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="TamilNadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="UttarPradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="WestBengal">West Bengal</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputDistrict" class="form-label">District</label>
+                        <select name="district" class="form-control" id="inputDistrict">
+                            <option disabled selected value="">Select District</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputSeason" class="form-label">Season</label>
+                        <select name="Season" id="inputSeason" class="form-control">
+                            <option selected disabled>Select Season</option>
+                            <option value="Whole Year">Whole Year</option>
+                            <option value="Kharif">Kharif</option>
+                            <option value="Autumn">Autumn</option>
+                            <option value="Rabi">Rabi</option>
+                            <option value="Summer">Summer</option>
+                            <option value="Winter">Winter</option>
+                        </select>
+                    </div>
+
+                    <!-- N	P	K	temperature	humidity	ph	rainfall -->
+                    <div class="mb-3">
+                        <label for="N"  class="form-label">N</label>
+                        <input type="number" step=0.01 name="n" class="form-control" id="N" placeholder="Ratio of N">
+                    </div>
+                    <div class="mb-3">
+                        <label for="P"  class="form-label">P</label>
+                        <input type="number" step=0.01 name="p" class="form-control" id="P" placeholder="Ratio of P">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="K"  class="form-label">K</label>
+                        <input type="number"  step=0.01 name="k" class="form-control" id="K" placeholder="Ratio of K">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Temperature"   class="form-label">Temperature</label>
+                        <input type="number" step=0.01  name="temperature" class="form-control" id="Temperature" placeholder="In Celcius">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Humidity"   class="form-label">Humidity</label>
+                        <input type="number" step=0.01  name="humidity" class="form-control" id="Humidity" placeholder="Relative Humidity in %">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="PH"  class="form-label">PH</label>
+                        <input type="number" step=0.01 name="ph" class="form-control" id="PH" placeholder="ph of soil">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Rainfall"  class="form-label">Rainfall</label>
+                        <input type="number" step=0.01 name="rainfall" class="form-control" id="Rainfall" placeholder="rainfall in mm">
+                    </div>
+                    <div id="button1"class="text-center">
+                        <button class="btn btn-md btn-primary" type="button" id="submit1">Submit</button>
+                    </div>
+                    
+
+                    <!-- crop predicted -->
+                    <div id="afterprediction" style="display: none;">
+                        <div class="mb-3">
+                            <label for="Crop"  class="form-label">Crop</label>
+                            <input type="Crop"  name="Crop" class="form-control" id="Crop" placeholder="Rice">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Area"  class="form-label">Area</label>
+                            <input type="number" name="Area" class="form-control" id="Area" placeholder="Area in Hectares ">
+                        </div>
+                        <div id="button2" class="text-center">
+                            <button class="btn btn-md btn-primary" type="button" id="submit2">Submit</button>
+                        </div>
+                        
+                    </div>  
+                    <div style="padding-left:11rem;">
+                        <button style="display: none;" class="btn btn-md btn-primary" type="submit" id="getanotherprediction">Get another prediction</button>
+                    </div> 
+
+                </form>
+            </div>
+            <div class="col-lg-3"></div>
+        
+
+        </div> 
+    </div>
+
+    
+      
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Recommended Crop</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <img id="cropimage" src=""  alt='{{ url_for("static",filename="image/crops/crop.jpg")}}' class="img-fluid">
+                    <p> The recommended crop is  <span id="cropre"></span> </p>  
+                </div>
+               
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="yieldshow" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Yield of Crop</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p> The production of crop is <span id="production"></span> tonnes. </p> 
+                <p> The yield of crop is <span id="yield"></span>  tonnes/hectare.</p>
+                
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+</div>
+<script type= "text/javascript" src = "{{ url_for('static',filename='styles/countries.js') }}"></script>
+
+{% endblock %}

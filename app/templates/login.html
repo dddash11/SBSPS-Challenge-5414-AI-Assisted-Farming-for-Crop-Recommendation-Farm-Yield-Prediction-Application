@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="login" class="text-center">
+      <div class="form-signin">
+        
+
+        <img id="login-img" class="mb-4" src="{{ url_for('static',filename='image/icon.png') }}" alt="" style="border-radius: 2rem;" width="72" height="72">
+        <form method="POST" action="/login" style="border:1px solid white; padding:5px; border-radius: 9px; background-color: white;">
+            
+          <h1 class="h3 mb-3 fw-normal ">Sign In</h1>
+          <div class="form-floating">
+            <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+      
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      </form>
+      {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <div class="notification is-danger" style="color: red;">
+                {{ messages[0] }}
+              </div>
+            {% endif %}
+        {% endwith %}
+
+        <br><br>
+        <p class="fs-6">New Customer?</p>
+        <!-- <p class="h6 mb-4 fw-normal ">New Customer?</p> -->
+        <a class="nav-link" href="{{ url_for('auth.signupasfarmer') }}">
+          <button class="w-100 btn btn-lg btn-primary">Create Your Account</button>
+        </a>            
+      </div>
+    </div>
+{% endblock %}
