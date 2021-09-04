@@ -45,3 +45,8 @@ We have Used IBM Services to build Machine Learning models and integrate it with
 * ``` Scikit-learn and Random Forest Regressor```
 * ```News-api```
 
+
+## Project Report and Demonstration Video
+
+Google Drive Link: [click here](https://drive.google.com/drive/folders/1aIWxkb6Z_CPJIy6uLOPeMtBwNkyBnl1A?usp=sharing)
+
