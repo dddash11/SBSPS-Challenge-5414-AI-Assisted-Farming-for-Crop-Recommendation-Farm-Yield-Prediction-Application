@@ -48,5 +48,5 @@ We have Used IBM Services to build Machine Learning models and integrate it with
 
 ## Project Report and Demonstration Video
 
-Google Drive Link: ![click here](https://drive.google.com/drive/folders/1aIWxkb6Z_CPJIy6uLOPeMtBwNkyBnl1A?usp=sharing)
+Google Drive Link: [click here](https://drive.google.com/drive/folders/1aIWxkb6Z_CPJIy6uLOPeMtBwNkyBnl1A?usp=sharing)
 
