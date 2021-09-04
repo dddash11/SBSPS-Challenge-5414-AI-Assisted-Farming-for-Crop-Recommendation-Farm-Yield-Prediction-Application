@@ -1,5 +1,7 @@
 # SBSPS-Challenge-5414-AI-Assisted-Farming-for-Crop-Recommendation-Farm-Yield-Prediction-Application
 
+![image](https://github.com/smartinternz02/SBSPS-Challenge-5414-AI-Assisted-Farming-for-Crop-Recommendation-Farm-Yield-Prediction-Application/blob/main/screen%20shots/home.png?raw=true)
+
 ## About
 Can you imagine an industry that involves more risk than agriculture? Usually, people say "You reap what you sow", but what they forget to add is "if you're lucky." When the weather strikes or cross gets affected by the disease, farmers can hardly talk about yields or when a global pandemic hits, all of a sudden it gets harder to manage various processes because most are not digital.
 
