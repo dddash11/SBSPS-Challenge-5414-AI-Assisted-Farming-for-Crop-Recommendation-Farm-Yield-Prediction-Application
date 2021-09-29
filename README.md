@@ -26,7 +26,7 @@ We have Used IBM Services to build Machine Learning models and integrate it with
 ## IBM Services Used
 
 ##### * IBM Machine Learning
-##### * DB2                
+##### * IBM DB2                
 ##### * IBM IOT Platform 
 ##### * IBM Cognos Analytics 
 ##### * IBM Cloud Object Storage 
@@ -35,6 +35,7 @@ We have Used IBM Services to build Machine Learning models and integrate it with
 ##### * Node Red
 ##### * IBM Auto AI
 ##### * IBM Cloud Function
+##### * IBM Kubernetes
 
 ## Language, Modules and Frameworks
 
