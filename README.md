@@ -36,6 +36,7 @@ We have Used IBM Services to build Machine Learning models and integrate it with
 ##### * IBM Auto AI
 ##### * IBM Cloud Function
 ##### * IBM Kubernetes
+##### * IBM Cloud Foundry
 
 ## Language, Modules and Frameworks
 
